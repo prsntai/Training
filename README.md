@@ -1,6 +1,6 @@
 # algorithm
 
-Testing repository for the prsntAI's GPT-based algorithm.
+Testing repository for prsntAI's GPT-based algorithm.
 
 ## Table of Contents
 
