@@ -1,6 +1,7 @@
 import os
 from openai import OpenAI
 import json
+from transcribe import *
 
 def import_json(json_file):
     with open(json_file, 'r') as file:
@@ -24,9 +25,18 @@ if __name__ == "__main__":
     data_path = os.getcwd() + '/data.json'
     message_data = import_json(data_path)
 
+    current_slide = ''
     while True:
-        text_input = input("> ")
-        message_data += {"role": "user", "content": text_input},
+        text_input = record_text()
+
+        if 'end presentation' in text_input:
+            break
+        elif 'new slide' in text_input:
+            current_slide = ''
+        else:
+            current_slide += ' ' + text_input
+
+        message_data += {"role": "user", "content": current_slide},
 
         # chatGPT completion
         completion = gpt_prompt(message_data, client)
