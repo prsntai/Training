@@ -22,19 +22,29 @@ if __name__ == "__main__":
     api_key = "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"
     client = OpenAI(api_key=api_key)
 
-    data_path = os.getcwd() + '/data.json'
+    # do actual fine tuning later
+    data_path = os.getcwd() + '/prsnt.json'
     message_data = import_json(data_path)
+
+    state_path = os.getcwd() + '/state.json'
+    state_data = import_json(state_path)
 
     current_slide = ''
     while True:
         text_input = record_text()
+        current_slide += ' ' + text_input
 
-        if 'end presentation' in text_input:
-            break
-        elif 'new slide' in text_input:
-            current_slide = ''
-        else:
-            current_slide += ' ' + text_input
+        state_data += {"role": "user", "content": current_slide},
+
+        # state detection (switch slides or stay)
+        state_raw = gpt_prompt(state_data, client)
+        state = state_raw.choices[0].message.content
+
+        state_data += {"role": "assistant", "content": state},
+
+        if 'switch' in state:
+            current_slide = text_input
+            print('\n--- switching slides ---\n')
 
         message_data += {"role": "user", "content": current_slide},
 
@@ -44,5 +54,5 @@ if __name__ == "__main__":
         text_output = completion.choices[0].message.content
         message_data += {"role": "assistant", "content": text_output},
 
-        print(text_output, end='\n\n')
-
+        print('Transcription:', text_input)
+        print('Slide:', text_output, end='\n\n')

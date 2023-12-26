@@ -1,0 +1,13 @@
+[
+    {"role": "system", "content": "A slideshow is being presented. Using the text below determine whether to stay in the current slide (stay) or switch to the next slide (switch). Only respond with the word 'stay' or 'switch'."},
+    {"role": "user", "content": "Ladies and gentlemen, thank you"},
+    {"role": "assistant", "content": "stay"},
+    {"role": "user", "content": "Ladies and gentlemen, thank you for joining me today as we delve into a pivotal moment in history - the attack on Pearl Harbor. On the fateful day of December 7, 1941, the tranquility of the Hawaiian naval base was shattered by a surprise assault carried out by the Imperial Japanese Navy. This unprovoked attack marked the United States' entry into World War II. Over 2,400 Americans lost their lives, and 8 battleships, 3 cruisers"},
+    {"role": "assistant", "content": "stay"},
+    {"role": "user", "content": "Ladies and gentlemen, thank you for joining me today as we delve into a pivotal moment in history - the attack on Pearl Harbor. On the fateful day of December 7, 1941, the tranquility of the Hawaiian naval base was shattered by a surprise assault carried out by the Imperial Japanese Navy. This unprovoked attack marked the United States' entry into World War II. Over 2,400 Americans lost their lives, and 8 battleships, 3 cruisers, and 4 destroyers were either destroyed or heavily damaged. In conclusion, Pearl Harbor was"},
+    {"role": "assistant", "content": "switch"},
+    {"role": "user", "content": "In conclusion, Pearl Harbor was bad and should be remembered."},
+    {"role": "assistant", "content": "stay"},
+    {"role": "user", "content": "In conclusion, Pearl Harbor was bad and should be remembered. Let's talk about another topic."},
+    {"role": "assistant", "content": "stay"}
+]
