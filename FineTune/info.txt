@@ -1,0 +1,12 @@
+This folder is for testing and fine-tuning a model for prsntAI.
+
+Future Steps/Ideas (* is important):
+    In the actual AI model provide a summary of the presentation to the system.
+
+    Use chatGPT to create a title for the overall presentation and display it on all slides
+
+    Don't worry about switching slides, just make it manual or by a specific keyword spoken
+
+    In the future fine tune it using previous information on the slide and adding onto it.  
+
+    * Store only the previous GPT-generated user/system interation in the message data.
