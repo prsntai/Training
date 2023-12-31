@@ -19,7 +19,7 @@ def gpt_prompt(text, client, model="gpt-3.5-turbo", max_tokens=100):
     return completion.choices[0].message.content
 
 if __name__ == "__main__":
-    api_key = "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"
+    api_key = "API_KEY"
     client = OpenAI(api_key=api_key)
 
     # do actual fine tuning later
